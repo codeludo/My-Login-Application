@@ -8,4 +8,6 @@
     <string name="mensaje_nombre_vacio">campo nombre no puede estar vacio</string>
     <string name="mensaje_clave_vacio">campo clave no puede estar vacio</string>
     <string name="mensaje_nombre_invalido">El nombre no debe tener numeros</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="mensaje_es_usuario">"extraño de nombre "</string>
 </resources>

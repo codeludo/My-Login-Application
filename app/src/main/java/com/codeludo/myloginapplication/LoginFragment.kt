@@ -44,8 +44,9 @@ class LoginFragment : Fragment() {
             val clave = clave_edit.text.toString()
 
             if(verificarIngreso(nombre, clave)){
-                val startSecondActivity = Intent(context, SegundaActivity::class.java)
-                startSecondActivity.putExtra("nombre", nombre)
+                val startSecondActivity = Intent(context, SegundaActivity::class.java).apply {
+                    putExtra("nombre", nombre)
+                }
                 startActivity(startSecondActivity)
             }
         }
