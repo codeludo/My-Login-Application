@@ -1,5 +1,6 @@
 package com.codeludo.myloginapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.codeludo.myloginapplication.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -42,26 +44,38 @@ class LoginFragment : Fragment() {
             val clave = clave_edit.text.toString()
 
             if(verificarIngreso(nombre, clave)){
-                TODO()
+                val startSecondActivity = Intent(context, SegundaActivity::class.java)
+                startSecondActivity.putExtra("nombre", nombre)
+                startActivity(startSecondActivity)
             }
         }
         return binding.root
     }
 
     private fun verificarIngreso(nombre: String, clave: String): Boolean {
-        if(nombreVacio(nombre)){
-            Toast.makeText(context, getText(R.string.mensaje_nombre_vacio),
-                Toast.LENGTH_SHORT).show()
-            return false
-        }else if(claveVacio(clave)){
-            Toast.makeText(context, getText(R.string.mensaje_clave_vacio),
-                Toast.LENGTH_SHORT).show()
-            return false
-        }else if (nombreVacio(nombre) && claveVacio(clave)){
-            Toast.makeText(context, getText(R.string.mensaje_campos_vacios),
-                Toast.LENGTH_SHORT).show()
-            return false
-        }else if(!esNombreValido(nombre)) return false
+        binding.apply {
+            if(nombreVacio(nombre) && claveVacio(clave)){
+                Toast.makeText(context, getText(R.string.mensaje_campos_vacios),
+                    Toast.LENGTH_SHORT).show()
+                nombreEdit.requestFocus()
+                return false
+            }else if(nombreVacio(nombre)){
+                Toast.makeText(context, getText(R.string.mensaje_nombre_vacio),
+                    Toast.LENGTH_SHORT).show()
+                nombreEdit.requestFocus()
+                return false
+            }else if (claveVacio(clave)){
+                Toast.makeText(context, getText(R.string.mensaje_clave_vacio),
+                    Toast.LENGTH_SHORT).show()
+                claveEdit.requestFocus()
+                return false
+            }else if(!esNombreValido(nombre)){
+                Toast.makeText(context, getText(R.string.mensaje_nombre_invalido),
+                    Toast.LENGTH_SHORT).show()
+                nombreEdit.requestFocus()
+                return false
+            }
+        }
         return true
     }
 

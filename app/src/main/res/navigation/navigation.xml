@@ -11,12 +11,12 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_second"
+            android:id="@+id/action_loginFragment_to_second_activity"
             app:destination="@id/second" />
     </fragment>
     <activity
         android:id="@+id/second"
-        android:name="com.codeludo.myloginapplication.Second"
+        android:name="com.codeludo.myloginapplication.SegundaActivity"
         android:label="activity_second"
-        tools:layout="@layout/activity_second" />
+        tools:layout="@layout/activity_segunda" />
 </navigation>
