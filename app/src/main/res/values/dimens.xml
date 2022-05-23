@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="boton_ancho">210dp</dimen>
+    <dimen name="min_heigth">48dp</dimen>
+    <dimen name="margen_inferior">50dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="header_margin">100dp</dimen>
+    <dimen name="title_size">25sp</dimen>
+</resources>
