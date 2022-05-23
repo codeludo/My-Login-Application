@@ -44,7 +44,6 @@ class LoginFragment : Fragment() {
             if(verificarIngreso(nombre, clave)){
                 TODO()
             }
-
         }
         return binding.root
     }
